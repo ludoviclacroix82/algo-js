@@ -4,7 +4,9 @@
    
     function checkCurrentMinMax(minNumber,maxNumber,currentNumber){
 
-        if( minNumber >0 && maxNumber >0 && currentNumber >0){
+        minNumber = parseInt(minNumber);
+        maxNumber = parseInt(maxNumber);
+        currentNumber = parseInt(currentNumber);
 
             if(minNumber <  maxNumber){
                 if (currentNumber < maxNumber && currentNumber > minNumber) 
@@ -15,19 +17,23 @@
                 alert('Le nombre minimal est plus grand que le maximal');
                 prompt();
             }         
-    
-        }else{
-            alert("Une valeur n'est pas un nombre");
-            prompt();
-        }
     }
 
     function prompt(){        
-        let minNumber = parseInt(window.prompt("Donnez un nombre minimal"));
-        let maxNumber = parseInt(window.prompt("Donnez un nombre maximal"));
-        let currentNumber = parseInt( window.prompt("Donnez un nombre"));
+        do {
+            var minNumber = window.prompt("Donnez un nombre minimal");
+        } while (isNaN(minNumber));
 
-        checkCurrentMinMax(minNumber,maxNumber,currentNumber);
+        do {
+            var maxNumber = window.prompt("Donnez un nombre maximal");
+        } while (isNaN(minNumber));
+
+        do {
+            var currentNumber =  window.prompt("Donnez un nombre");
+        } while (isNaN(minNumber));
+       
+
+        checkCurrentMinMax(parseInt(minNumber),parseInt(maxNumber),parseInt(currentNumber));
     }
     
 
