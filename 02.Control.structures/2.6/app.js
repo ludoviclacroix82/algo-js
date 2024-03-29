@@ -3,8 +3,8 @@
 var day = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"];
 
     do {
-        var number = window.prompt("enter a number between 1 and 7");
-    } while ((isNaN(number)) || ((parseInt(number) > 0) && (parseInt(number < 8))));
+        var number = parseInt(window.prompt("enter a number between 1 and 7"));
+    } while (number >= 8 || isNaN(number));
 
         number = number -1;
         alert(day[number]);    
