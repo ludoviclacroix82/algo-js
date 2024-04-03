@@ -17,6 +17,13 @@
 
       let serieTv = new Object();
 
+      /**
+       * fonction qui demandera à l'utilisateur les données suivantes sur sa série télévisée préférée :
+       * @param {*} myObject - L'objet dans lequel stocker les informations sur la série.
+       * @param {*} serie - Stock le nom de la serie que l'utilisateur a encodé.
+       * @param {*} production - Stock l'année de production que l'utilisateur a encodé.
+       * @param {*} actor - Tableau qui va stock les nom des acteurs encodés par l'utilisateur.
+       */
       function askTvSerie(myObject){
 
 
@@ -38,7 +45,10 @@
         
       }
 
-
+      /**
+       * Fonction pour inverser l'ordre des acteurs dans une série TV et afficher les informations de la série au format JSON.
+       * @param {Object} tvSerie - L'objet représentant une série TV.
+       */
       function randomizeCast(tvSerie){
         tvSerie["actor"].reverse();
         let JsonFormat = JSON.stringify(tvSerie);
