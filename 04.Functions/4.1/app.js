@@ -9,16 +9,21 @@
 
     
 
-    document.write(calcSurface(lengthNumber, widthNumber)); // j'appel la fucntion calcSurface et je recupere les 2 param. des 2 prompts
+    document.write(calcSurface(lengthNumber, widthNumber)); 
 
-   
+   /**
+    * Fonction pour calculer la surface d'un rectangle.
+    * @param {number} length - La longueur du rectangle.
+    * @param {number} width - La largeur du rectangle.
+    * @returns {number} La surface du rectangle.
+    */ 
     function calcSurface(length, width){
         let surface = 0;
 
-        lenght = parseInt(length); // je convertit la varial en entier 
-        width = parseInt(width); // je convertit la varial en entier 
+        lenght = parseInt(length); 
+        width = parseInt(width); 
 
-        surface = length * width; // je multiplie les 2 variables pour avoir la surface 
+        surface = length * width; 
 
         return surface;
     }

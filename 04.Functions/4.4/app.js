@@ -3,33 +3,40 @@
     var students = ["Ludovic","Denis","Adrien","Mohamed","Adrien B","Angel","Arnaud","Dorian","Stacy","Dylan"];
     let n = rand10(students.length,1) ;
 
-
-    function rand10(max,num){ // function rand10 avec 2 params valeur max du random (max) & (n) = 0  le ramdom commencrea pas 0 
+    /**
+     * Fonction renvoie un entier aléatoire compris entre 1 et 10.
+     * @returns {randomNumber} retourne un nombre aléatoire compris entre 1 & 10
+     */
+    function rand10(max,num){ 
         
         randomNumber = Math.floor((Math.random()*max)+num);
         return randomNumber;
 
     }
 
+    /**
+     * Renvoyer un tableau d'apprenants sélectionnés au hasard
+     * @param {*} inputAr tableau reprenant des Noms
+     * @param {*} n nombre aléatoire entre 1 & 10 
+     * @returns le nom d'un éleves du tableau inputAr
+     */
     function pickLearner(inputAr, n){
 
         var result= [];
         let nameStudent = "";
        
 
-        for (let i = 1; i <= n; i++) { // boucle de 1 a la valeur n -> number random.
+        for (let i = 1; i <= n; i++) { 
 
-            let studentsLength = students.length - 1 ; // Récupère la longueur de students et soustrais 1 car la première valeur du tableau commence à 0.
+            let studentsLength = students.length - 1 ;
             
-            randomNumber = rand10(studentsLength,0);  // Appelle la fonction rand10 avec un paramètre de la longueur du tableau students & 0 pour que le nombre aléatoire soit compris entre 0 et la longueur du tableau students.
+            randomNumber = rand10(studentsLength,0);  
             nameStudent = inputAr[randomNumber] ;
 
                 do {
                     randomNumber = rand10(studentsLength, 0);    
                     nameStudent = inputAr[randomNumber];
                 } while (result.includes(nameStudent));   
-                // Je vérifie si le nom de l'étudiant existe déjà dans le tableau resultat, si oui je boucle.
-                // J'évite une redondance dans le tableau resultat.
 
             result.push(nameStudent);            
         }

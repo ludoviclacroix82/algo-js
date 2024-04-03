@@ -8,12 +8,17 @@
         return randomNumber;
 
     }
-
+    /**
+     *  Demandera le nombre de nombres aléatoires à générer, puis affichera ce même nombre de nombres aléatoires.
+     * @param {*} n Nombre 
+     * @param {*} result Tableau qui va récupéré les nombres aléatoires.
+     * @returns le tableau "result"
+     */
     function multiRand(n){
 
-        let result = [] // creation d'un array
+        let result = [] 
 
-        for (let i = 1; i <= n; i++) { // Boucle de 1 a nombre random de la fonction rand10() 
+        for (let i = 1; i <= n; i++) {  
             
             randomNumber = rand10(); // nombre random de 1 a 10 
             result.push(randomNumber); // j'ajoute le nombre ramdom au array.
