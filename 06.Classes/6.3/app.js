@@ -15,12 +15,14 @@
             let xPosOther = otherRectangle.topLeftXPos ;
             let yPosOther = otherRectangle.topLeftYPos ;
 
-            return (xPosOther <= xPos && yPosOther <= yPos)?"collision !":"";
-
+            let checkCollision = (xPosOther <= xPos && yPosOther <= yPos)?1:0;
+            return checkCollision;
         }
     }
 
     var numFor = 1000;
+    var tabRectangle = [];
+    let numCollision = 0;
 
     function numberRandom(){
 
@@ -35,16 +37,17 @@
         let rectWidth = numberRandom();
         let rectLength = numberRandom();
 
-        let rectangle1 = new Rectangle(rectXpos,rectYpos,rectWidth,rectLength);
+        let rectangle = new Rectangle(rectXpos,rectYpos,rectWidth,rectLength);
+        tabRectangle.push(rectangle);        
 
-        let rect2Xpos = numberRandom();
-        let rect2Ypos = numberRandom();
-        let rect2Width = numberRandom();
-        let rect2Length = numberRandom();
-
-        let rectangle2 = new Rectangle(rect2Xpos,rect2Ypos,rect2Width,rect2Length);
-
-        console.log(rectangle1.collides(rectangle2));
     }
 
+    for (let i = 0; i < tabRectangle.length; i++) {
+        for (let y = 1; y < tabRectangle.length -1; y++) {
+            if(i !== y)
+                numCollision += tabRectangle[i].collides(tabRectangle[y]);
+        }      
+    }
+
+    console.log(numCollision + " Collision(s)");
 })(); 
