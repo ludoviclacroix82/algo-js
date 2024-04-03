@@ -1,12 +1,26 @@
 (() => {
-
+    /**
+    * Classe représentant un rectangle avec un coin supérieur gauche, une largeur et une longueur.
+    */
     class Rectangle{
+        /**
+         * Crée une instance de Rectangle.
+         * @param {number} topLeftXPos - La position en x du coin supérieur gauche du rectangle.
+         * @param {number} topLeftYPos - La position en y du coin supérieur gauche du rectangle.
+         * @param {number} width - La largeur du rectangle.
+         * @param {number} length - La longueur du rectangle.
+         */
         constructor(topLeftXPos, topLeftYPos ,width , length){
             this.topLeftXPos = topLeftXPos;
             this.topLeftYPos = topLeftYPos;
             this.width = width;
             this.length = length;
         }
+        /**
+         * Vérifie s'il y a une collision entre ce rectangle et un autre rectangle donné.
+         * @param {Rectangle} otherRectangle - L'autre rectangle avec lequel vérifier la collision.
+         * @returns {string} Un message indiquant s'il y a collision ou non.
+         */
         collides(otherRectangle){
             
             let xPos = this.topLeftXPos + this.width;
