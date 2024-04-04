@@ -22,14 +22,19 @@
          * @returns {number} 1 si collision, 0 sinon.
          */
         collides(otherRectangle){
-            
+            let  checkCollision =0;
+
             let xPos = this.topLeftXPos + this.width;
-            let yPos = this.topLeftYPos + this.length;
+            let yPos = this.topLeftYPos + this.length; 
 
-            let xPosOther = otherRectangle.topLeftXPos ;
-            let yPosOther = otherRectangle.topLeftYPos ;
+            let xPosOther = otherRectangle.topLeftXPos + otherRectangle.width ;
+            let yPosOther = otherRectangle.topLeftYPos + otherRectangle.length ;
 
-            let checkCollision = (xPosOther <= xPos && yPosOther <= yPos)?1:0;
+       
+            if(this.topLeftXPos < xPosOther && xPos > otherRectangle.topLeftXPos &&
+                this.topLeftYPos < yPosOther && yPos > otherRectangle.topLeftYPos){
+                     checkCollision = 1;
+                }
             return checkCollision;
         }
     }
@@ -37,10 +42,15 @@
     var numFor = 1000;
     var tabRectangle = [];
     let numCollision = 0;
-
+    /**
+     * Fonction qui donne un nombre aléatoire .
+     * @returns le nombre aleatoire 
+     */
     function numberRandom(){
 
-        number = Math.floor((Math.random()*100)+1);
+        let maxNum = 1000;
+
+        number = Math.floor((Math.random()*maxNum)+1);
         return number;
     }
 
@@ -56,12 +66,15 @@
 
     }
 
-    for (let i = 0; i < tabRectangle.length; i++) {
+   for (let i = 0; i < tabRectangle.length; i++) {
         for (let y = 1; y < tabRectangle.length -1; y++) {
             if(i !== y)
                 numCollision += tabRectangle[i].collides(tabRectangle[y]);
         }      
     }
+    
 
+  
     console.log(numCollision + " Collision(s)");
+    //console.log(tabRectangle);
 })(); 

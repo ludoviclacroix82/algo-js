@@ -23,13 +23,20 @@
          */
         collides(otherRectangle){
             
+            let  checkCollision =0;
+
             let xPos = this.topLeftXPos + this.width;
-            let yPos = this.topLeftYPos + this.length;
+            let yPos = this.topLeftYPos + this.length; 
 
-            let xPosOther = otherRectangle.topLeftXPos ;
-            let yPosOther = otherRectangle.topLeftYPos ;
+            let xPosOther = otherRectangle.topLeftXPos + otherRectangle.width ;
+            let yPosOther = otherRectangle.topLeftYPos + otherRectangle.length ;
 
-            return (xPosOther <= xPos && yPosOther <= yPos)?"collision !":"";
+       
+            if(this.topLeftXPos < xPosOther && xPos > otherRectangle.topLeftXPos &&
+                this.topLeftYPos < yPosOther && yPos > otherRectangle.topLeftYPos){
+                     checkCollision = 1;
+                }
+            return checkCollision;
 
         }
     }
